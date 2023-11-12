@@ -20,7 +20,7 @@ const Baseboard = styled.footer`
 `
 
 const Copy = styled.h1`
-  size: 12px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 14.63px;
 `
