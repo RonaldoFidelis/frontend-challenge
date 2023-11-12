@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import styled from "styled-components";
+import iconDelete from "../assets/icons/Close_cart.png";
 
 type Product = {
   id: number;
@@ -11,37 +12,42 @@ type Product = {
   price: string;
   createdAt: string;
   updateAt: string;
-  quantity?:number;
+  quantity?: number;
 }
 
-export function ProductInCart() {
+export function CardProductInCart() {
   const { cart, setCart } = useContext(CartContext);
 
-  const decreaseQuantity = (sneaker: Product): void => {
-    const newCart = cart.map((item) => {
-      if(item.quantity == 1){
-        return {...item};
-      }
-      
-      if (item.id == sneaker.id) {
-        return { ...item, quantity: Math.max((item.quantity || 1) - 1, 0) }
+  const decreaseQuantity = (item: Product): void => {
+    const update = cart.map((product) => {
+      if (product.quantity == 1) {
+        return { ...product };
       }
 
-      return item;
+      if (product.id == item.id) {
+        return { ...product, quantity: Math.max((product.quantity || 1) - 1, 0) }
+      }
+
+      return product;
     })
-    setCart(newCart);
+    setCart(update);
   }
 
-  const incrementQuantity = (sneaker: Product): void => {
-    const newCart = cart.map((item) => {
-      if (item.id == sneaker.id) {
-        return { ...item, quantity: Math.max((item.quantity || 1) + 1, 0) }
+  const incrementQuantity = (item: Product): void => {
+    const updateCart = cart.map((product) => {
+      if (product.id == item.id) {
+        return { ...product, quantity: Math.max((product.quantity || 1) + 1, 0) }
       }
-      return item;
+      return product;
     })
-    setCart(newCart);
+    setCart(updateCart);
   }
-  
+
+  const deleteWish = (item: Product): void => {
+    const updateCart = cart.filter((product) => product.id !== item.id)
+    setCart(updateCart);
+  }
+
   return (
     <Wrapper>
       {cart.map((product) => (
@@ -67,6 +73,9 @@ export function ProductInCart() {
             </WrapperIncrementQuantity>
           </WrapperQuantity>
           <Price>R${product.price.replace('.00', '')}</Price>
+          <DeleteWish onClick={() => deleteWish(product)}>
+            <IconDelete src={iconDelete} />
+          </DeleteWish>
         </Card>
       ))}
     </Wrapper>
@@ -82,6 +91,7 @@ const Wrapper = styled.div`
 `
 
 const Card = styled.div`
+  position: relative;
   width: 379px;
   height: 95px;
   border-radius: 8px;
@@ -112,7 +122,10 @@ const Name = styled.span`
 
 const WrapperQuantity = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  margin-bottom: 9px;
+
 `
 const Label = styled.p`
   font-size: 5px;
@@ -161,4 +174,17 @@ const Price = styled.span`
   font-size: 14px;
   font-weight: 700;
   line-height: 17px;
+`
+
+const DeleteWish = styled.button`
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+`
+
+const IconDelete = styled.img`
+  width: 16px;
 `
