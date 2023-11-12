@@ -13,7 +13,7 @@
 - **[React Router](https://reactrouter.com/en/main)**
 - **[HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)**
 - **[CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)**
-- **[https://styled-components.com/](https://tailwindcss.com/)**
+- **[Styled components](https://styled-components.com/)**
 
 
 ## DESAFIO
