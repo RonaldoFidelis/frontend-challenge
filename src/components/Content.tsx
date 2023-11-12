@@ -1,10 +1,21 @@
 import styled from "styled-components"
+import { useFetch } from "../hooks/useFetch"
+import { CardProduct } from "./CardProduct";
 
 export function Content() {
+  const {data, isLoading, error} = useFetch();
+
+  if(isLoading){
+    console.log('Carregando...')
+  }
+
+  if(error){
+    console.log('Error')
+  }
 
   return(
     <Wrapper>
-
+      <CardProduct data={data}/>
     </Wrapper>
   )
 }
