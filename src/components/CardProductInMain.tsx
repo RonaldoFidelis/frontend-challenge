@@ -47,9 +47,9 @@ export function CardProductInMain({ data }: { data: Product }) {
       {data.products.map((item) => (
         <Card key={item.id}>
           <WrapperProduct>
-            <Photo>
+            <WrapperImg>
               <Img src={item.photo} alt={item.name} />
-            </Photo>
+            </WrapperImg>
             <About>
               <Info>
                 <Product>{item.name}</Product>
@@ -58,12 +58,12 @@ export function CardProductInMain({ data }: { data: Product }) {
               <Description>{item.description}</Description>
             </About>
           </WrapperProduct>
-          <Buy onClick={() => addedToCart(item)}>
+          <BtnAddedToCart onClick={() => addedToCart(item)}>
             <Bag src={bag} />
             <LabelBtn>
               Comprar
             </LabelBtn>
-          </Buy>
+          </BtnAddedToCart>
         </Card>
       ))}
     </Wrapper>
@@ -98,7 +98,7 @@ const WrapperProduct = styled.div`
   flex-direction: column;
 `
 
-const Photo = styled.div`
+const WrapperImg = styled.div`
   width: 111px;
   height: 138px;
 `;
@@ -148,7 +148,7 @@ const Description = styled.h3`
   line-height: 12px;
 `;
 
-const Buy = styled.button`
+const BtnAddedToCart = styled.button`
   width: 218px;
   height: 31.91px;
   border: none;
