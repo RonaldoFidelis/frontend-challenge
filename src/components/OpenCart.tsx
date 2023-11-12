@@ -2,7 +2,7 @@ import styled from "styled-components";
 import icon from "../assets/icons/Close_cart.png";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/CartContext";
-import { ProductInCart } from "./ProductInCart";
+import { CardProductInCart } from "./ProductInCart";
 
 interface Props {
   setCart: React.Dispatch<React.SetStateAction<boolean>>;
@@ -39,7 +39,7 @@ export function OpenCart({ setCart }: Props) {
         {cart.length == 0 ? (
           <CartEmpty>Seu carrinho está vazio.</CartEmpty>
         ) : (
-          <ProductInCart />
+          <CardProductInCart />
         )}
       </Content>
       <WrapperTotal>
@@ -74,8 +74,6 @@ const Header = styled.div`
 
 const Content = styled.div`
   flex: 1;
-  overflow: auto;
-
 `
 const Title = styled.h1`
   width: 180px;
@@ -136,7 +134,7 @@ const Checkout = styled.button`
 
 const CartEmpty = styled.h1`
   flex: 1;
-  margin: auto;
+  text-align: center;
   font-size: 15px;
   line-height: 19px;
   font-weight: 600;

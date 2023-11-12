@@ -28,7 +28,7 @@ type Item = {
   updateAt: string;
 }
 
-export function CardProduct({ data }: { data: Product }) {
+export function CardProductInMain({ data }: { data: Product }) {
   const {cart, setCart} = useContext(CartContext);
 
   const addedToCart = (item: Item): void => {

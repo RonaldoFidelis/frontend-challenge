@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import { useFetch } from "../hooks/useFetch"
-import { CardProduct } from "./CardProduct";
+import { CardProductInMain } from "./CardProductInMain";
 
-export function Content() {
+export function Main() {
   const {data, isLoading, error} = useFetch();
 
   if(isLoading){
@@ -15,7 +15,7 @@ export function Content() {
 
   return(
     <Wrapper>
-      {data && <CardProduct data={data}/>}
+      {data && <CardProductInMain data={data}/>}
     </Wrapper>
   )
 }
