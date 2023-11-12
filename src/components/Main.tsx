@@ -1,13 +1,23 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
 import { useFetch } from "../hooks/useFetch";
 import { CardProductInMain } from "./CardProductInMain";
+
+import styled from "styled-components";
+import { Skeleton } from "./Skeleton";
 
 export function Main() {
   const { data, isLoading, error } = useFetch();
 
   if (isLoading) {
-    return <SkeletonLoader />;
+    const quantityExpectedProducts: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8]
+    return (
+      <Wrapper>
+        <WrapperCard>
+          {quantityExpectedProducts.map((product) => (
+            <Skeleton key={product} width={218} height={285} borderRadius={10}></Skeleton>
+          ))}
+        </WrapperCard>
+      </Wrapper>
+    );
   }
 
   if (error) {
@@ -23,26 +33,14 @@ export function Main() {
 
 const Wrapper = styled.div`
   flex: 1;
-  height: 100vh;
+  padding-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const shimmer = keyframes` // Animação do gradiente
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-`;
-
-const SkeletonLoader = styled.div`
-  flex: 1;
-  width: 100%;
-  height: 300px;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: ${shimmer} 1.5s infinite;
+const WrapperCard = styled.div`
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 `;
