@@ -74,6 +74,8 @@ const Header = styled.div`
 
 const Content = styled.div`
   flex: 1;
+  padding-top: 10px;
+  overflow: auto;
 `
 const Title = styled.h1`
   width: 180px;
