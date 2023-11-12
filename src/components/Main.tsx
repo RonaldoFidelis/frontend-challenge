@@ -10,7 +10,7 @@ export function Main() {
   }
 
   if(error){
-    console.log('Error')
+    console.log(error)
   }
 
   return(
