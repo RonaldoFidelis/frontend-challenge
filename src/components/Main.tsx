@@ -8,12 +8,11 @@ export function Main() {
   const { data, isLoading, error } = useFetch();
 
   if (isLoading) {
-    const quantityExpectedProducts: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8]
     return (
       <Wrapper>
         <WrapperCard>
-          {quantityExpectedProducts.map((product) => (
-            <Skeleton key={product} width={218} height={285} borderRadius={10}></Skeleton>
+          {Array.from({ length: 8 }, (_, index) => (
+            <Skeleton key={index + 1} width={218} height={285} borderRadius={10}></Skeleton>
           ))}
         </WrapperCard>
       </Wrapper>
