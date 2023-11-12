@@ -1,20 +1,20 @@
 import styled from "styled-components";
-import { CartMenu } from "./CartMenu";
+import { CartNavbar } from "./CartNavbar";
 
-export function TopMenu() {
+export function Navbar() {
 
   return (
-    <Navbar>
-      <ContentLogo>
-        <Logo>MKS</Logo>
+    <Menu>
+      <Wrapper>
+        <Title>MKS</Title>
         <Subtitle>Sistemas</Subtitle>
-      </ContentLogo>
-      <CartMenu/>
-    </Navbar>
+      </Wrapper>
+      <CartNavbar/>
+    </Menu>
   )
 }
 
-const Navbar = styled.nav`
+const Menu = styled.nav`
   position: fixed;
   display: flex;
   align-items:center;
@@ -25,7 +25,7 @@ const Navbar = styled.nav`
   width: 100%;
   height: 101px;
 `
-const ContentLogo = styled.div`
+const Wrapper = styled.div`
   height: 50px;
   display: flex;
   gap: 8px;
@@ -33,7 +33,7 @@ const ContentLogo = styled.div`
   align-items: center;
   flex-direction: row;
 `
-const Logo = styled.h1`
+const Title = styled.h1`
   color: #FFFFFF;
   line-height: 19px;
   font-size: 40px;

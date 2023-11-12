@@ -2,18 +2,18 @@ import { useState } from "react";
 import styled from "styled-components";
 import iconCart from "../assets/icons/Vector.svg";
 
-export function CartMenu() {
+export function CartNavbar() {
   const [countItemInCart, setCountCart] = useState<number | null>(null);
 
   return (
-    <WrapperCart>
-      <CartIcon src={iconCart} />
-      <CountItem>{countItemInCart ? countItemInCart : 0}</CountItem>
-    </WrapperCart>
+    <Wrapper>
+      <Cart src={iconCart} />
+      <CountProducts>{countItemInCart ? countItemInCart : 0}</CountProducts>
+    </Wrapper>
   );
 }
 
-const WrapperCart = styled.div`
+const Wrapper = styled.div`
   background: #FFFFFF;
   border-radius: 8px;
   min-width: 90px;
@@ -24,14 +24,15 @@ const WrapperCart = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
+  cursor: pointer;
 `
 
-const CartIcon = styled.img`
+const Cart = styled.img`
   width: 19.1px;
   height: 18px;
 `;
 
-const CountItem = styled.h1`
+const CountProducts = styled.h1`
   font-weight: 700;
   size: 18px;
   line-height: 21.97px;
