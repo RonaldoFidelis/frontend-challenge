@@ -1,18 +1,30 @@
 import styled from "styled-components";
 import icon from "../assets/icons/Close_cart.png";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/CartContext";
+import { ProductInCart } from "./ProductInCart";
 
 interface Props {
   setCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export function OpenCart({ setCart }: Props) {
-  const {cart} = useContext(CartContext);
+  const { cart } = useContext(CartContext);
+  const [totalAmount, setTotalAmount] = useState<number>(0);
 
   const handleCart = (): void => {
     setCart(false);
   };
+
+  useEffect(() => {
+    const calculateTotal = (): void => {
+      const sum: number = cart.reduce((accumulator, currentItem) => accumulator + Number(currentItem.price), 0);
+      setTotalAmount(sum);
+    };
+
+    calculateTotal();
+  }, [cart]);
+
 
   return (
     <Aside>
@@ -22,11 +34,17 @@ export function OpenCart({ setCart }: Props) {
           <IconClose src={icon} alt="Close icon" />
         </CloseMenu>
       </Header>
-      {cart.length == 0 ? (
-        <CartEmpty>Seu carrinho está vazio.</CartEmpty>
-      ):(
-        <Products>Produtos</Products>
-      )}
+      <Content>
+        {cart.length == 0 ? (
+          <CartEmpty>Seu carrinho está vazio.</CartEmpty>
+        ) : (
+          <ProductInCart />
+        )}
+      </Content>
+      <WrapperTotal>
+        <LabelTotal>Total:</LabelTotal>
+        <Total>{totalAmount === 0 ? '-' : `R$${totalAmount.toFixed(0)}`}</Total>
+      </WrapperTotal>
       <Checkout>Finalizar Compra</Checkout>
     </Aside>
   );
@@ -53,6 +71,11 @@ const Header = styled.div`
   justify-content: space-between;
 `;
 
+const Content = styled.div`
+  flex: 1;
+  overflow: auto;
+
+`
 const Title = styled.h1`
   width: 180px;
   height: 56px;
@@ -78,14 +101,25 @@ const IconClose = styled.img`
   height: 38px;
 `;
 
-const Products = styled.div`
-  flex: 1;
-  margin: auto;
+const WrapperTotal = styled.div`
+  margin-bottom: 10px;
+  padding: 15px;
+  width: 100%;
   display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-direction: column;
-`;
+  justify-content: space-between;
+`
+const LabelTotal = styled.h1`
+  color: #FFFFFF;
+  line-height: 15px;
+  font-size: 28px;
+  font-weight: 700;
+`
+const Total = styled.span`
+  color: #FFFFFF;
+  line-height: 15px;
+  font-size: 28px;
+  font-weight: 700;
+`
 
 const Checkout = styled.button`
   width: 486px;
