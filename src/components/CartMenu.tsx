@@ -7,11 +7,11 @@ export function CartMenu() {
 
   return (
     <WrapperCart>
-      <CartIcon as={iconCart} />
+      <CartIcon src={iconCart} />
+      <CountItem>{countItemInCart ? countItemInCart : 0}</CountItem>
     </WrapperCart>
   );
 }
-
 
 const WrapperCart = styled.div`
   background: #FFFFFF;
@@ -19,15 +19,20 @@ const WrapperCart = styled.div`
   min-width: 90px;
   height: 45px;
   display: flex;
-  gap: 10px;
+  gap: 20px;
   padding: 5px;
   align-items: center;
   justify-content: center;
   flex-direction: row;
 `
 
-const CartIcon = styled(iconCart)`
+const CartIcon = styled.img`
   width: 19.1px;
   height: 18px;
-  /* Adicione mais estilos conforme necessário */
 `;
+
+const CountItem = styled.h1`
+  font-weight: 700;
+  size: 18px;
+  line-height: 21.97px;
+`
