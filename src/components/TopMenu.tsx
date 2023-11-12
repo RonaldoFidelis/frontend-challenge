@@ -1,6 +1,20 @@
 import styled from "styled-components";
+import { CartMenu } from "./CartMenu";
 
-const Nav = styled.nav`
+export function TopMenu() {
+
+  return (
+    <Navbar>
+      <ContentLogo>
+        <Logo>MKS</Logo>
+        <Subtitle>Sistemas</Subtitle>
+      </ContentLogo>
+      <CartMenu/>
+    </Navbar>
+  )
+}
+
+const Navbar = styled.nav`
   position: fixed;
   display: flex;
   align-items:center;
@@ -32,15 +46,3 @@ const Subtitle = styled.h3`
   font-size: 20px;
   font-weight: 300;
 `
-
-export function TopMenu() {
-
-  return (
-    <Nav>
-      <ContentLogo>
-        <Logo>MKS</Logo>
-        <Subtitle>Sistemas</Subtitle>
-      </ContentLogo>
-    </Nav>
-  )
-}
