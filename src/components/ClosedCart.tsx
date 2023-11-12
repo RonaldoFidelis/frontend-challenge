@@ -2,18 +2,28 @@ import { useState } from "react";
 import styled from "styled-components";
 import iconCart from "../assets/icons/Vector.svg";
 
-export function CartNavbar() {
-  const [countItemInCart, setCountCart] = useState<number | null>(null);
+interface Props {
+  setCart: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export function CloseCart({ setCart }: Props) {
+  const [countItemInCart] = useState<number | null>(null);
+
+  const handleCart = (): void => {
+    setCart(true);
+  };
 
   return (
-    <Wrapper>
+    <Wrapper onClick={handleCart}>
       <Cart src={iconCart} />
       <CountProducts>{countItemInCart ? countItemInCart : 0}</CountProducts>
     </Wrapper>
   );
 }
 
+
 const Wrapper = styled.div`
+  position: relative;
   background: #FFFFFF;
   border-radius: 8px;
   min-width: 90px;

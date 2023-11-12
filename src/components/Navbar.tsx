@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { CartNavbar } from "./CartNavbar";
+import { CartControl } from "./CartControl";
 
 export function Navbar() {
 
@@ -9,7 +9,7 @@ export function Navbar() {
         <Title>MKS</Title>
         <Subtitle>Sistemas</Subtitle>
       </Wrapper>
-      <CartNavbar/>
+      <CartControl/>
     </Menu>
   )
 }
