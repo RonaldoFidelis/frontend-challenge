@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import icon from "../assets/icons/Close_cart.png";
+import icon from "../../assets/icons/Close_cart.png";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { InCart } from "../CardProducts/InCart";

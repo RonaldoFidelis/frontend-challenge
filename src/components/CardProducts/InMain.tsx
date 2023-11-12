@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import bag from "../assets/icons/shopping-bag.png"
+import bag from "../../assets/icons/shopping-bag.png"
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 

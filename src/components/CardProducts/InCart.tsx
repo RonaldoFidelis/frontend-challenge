@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import styled from "styled-components";
-import iconDelete from "../assets/icons/Close_cart.png";
+import iconDelete from "../../assets/icons/Close_cart.png";
 
 type Product = {
   id: number;

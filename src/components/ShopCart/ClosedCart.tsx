@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import iconCart from "../assets/icons/Vector.svg";
+import iconCart from "../../assets/icons/Vector.svg";
 import { CartContext } from "../../context/CartContext";
 
 interface Props {
