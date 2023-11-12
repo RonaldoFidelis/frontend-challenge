@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import bag from "../assets/icons/shopping-bag.png"
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 
 type Product = {
   products: Array<{
@@ -28,7 +28,7 @@ type Item = {
   updateAt: string;
 }
 
-export function CardProductInMain({ data }: { data: Product }) {
+export function InMain({ data }: { data: Product }) {
   const {cart, setCart} = useContext(CartContext);
 
   const addedToCart = (item: Item): void => {

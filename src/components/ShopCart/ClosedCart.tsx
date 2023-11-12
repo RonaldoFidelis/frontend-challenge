@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import iconCart from "../assets/icons/Vector.svg";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 
 interface Props {
   setCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function CloseCart({ setCart }: Props) {
+export function ClosedCart({ setCart }: Props) {
   const {cart} = useContext(CartContext);
 
   const handleCart = (): void => {

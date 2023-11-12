@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import icon from "../assets/icons/Close_cart.png";
 import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../context/CartContext";
-import { CardProductInCart } from "./ProductInCart";
+import { CartContext } from "../../context/CartContext";
+import { InCart } from "../CardProducts/InCart";
 
 interface Props {
   setCart: React.Dispatch<React.SetStateAction<boolean>>;
@@ -39,7 +39,7 @@ export function OpenCart({ setCart }: Props) {
         {cart.length == 0 ? (
           <CartEmpty>Seu carrinho está vazio.</CartEmpty>
         ) : (
-          <CardProductInCart />
+          <InCart />
         )}
       </Content>
       <WrapperTotal>

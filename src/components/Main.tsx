@@ -1,5 +1,5 @@
 import { useFetch } from "../hooks/useFetch";
-import { CardProductInMain } from "./CardProductInMain";
+import { InMain } from "./CardProducts/InMain";
 
 import styled from "styled-components";
 import { Skeleton } from "./Skeleton";
@@ -25,7 +25,7 @@ export function Main() {
 
   return (
     <Wrapper>
-      {data && <CardProductInMain data={data} />}
+      {data && <InMain data={data} />}
     </Wrapper>
   );
 }

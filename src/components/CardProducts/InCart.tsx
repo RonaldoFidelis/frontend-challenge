@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 import styled from "styled-components";
 import iconDelete from "../assets/icons/Close_cart.png";
 
@@ -15,7 +15,7 @@ type Product = {
   quantity?: number;
 }
 
-export function CardProductInCart() {
+export function InCart() {
   const { cart, setCart } = useContext(CartContext);
 
   const decreaseQuantity = (item: Product): void => {
