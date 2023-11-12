@@ -5,13 +5,13 @@ import styled from "styled-components";
 import { Skeleton } from "./Skeleton";
 
 export function Main() {
-  const { data, isLoading, error } = useFetch();
+  const { data, isLoading, quantityProducts, error } = useFetch();
 
   if (isLoading) {
     return (
       <Wrapper>
         <WrapperCard>
-          {Array.from({ length: 8 }, (_, index) => (
+          {Array.from({ length: quantityProducts }, (_, index) => (
             <Skeleton key={index + 1} width={218} height={285} borderRadius={10}></Skeleton>
           ))}
         </WrapperCard>
