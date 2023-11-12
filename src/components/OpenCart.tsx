@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import icon from "../assets/icons/Close_cart.png";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 interface Props {
   setCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export function OpenCart({ setCart }: Props) {
+  const {cart} = useContext(CartContext);
+
   const handleCart = (): void => {
     setCart(false);
   };
@@ -18,7 +22,11 @@ export function OpenCart({ setCart }: Props) {
           <IconClose src={icon} alt="Close icon" />
         </CloseMenu>
       </Header>
-      <Products>Produtos</Products>
+      {cart.length == 0 ? (
+        <CartEmpty>Seu carrinho está vazio.</CartEmpty>
+      ):(
+        <Products>Produtos</Products>
+      )}
       <Checkout>Finalizar Compra</Checkout>
     </Aside>
   );
@@ -90,3 +98,11 @@ const Checkout = styled.button`
   background: #000000;
   cursor: pointer;
 `;
+
+const CartEmpty = styled.h1`
+  flex: 1;
+  margin: auto;
+  font-size: 15px;
+  line-height: 19px;
+  font-weight: 600;
+`

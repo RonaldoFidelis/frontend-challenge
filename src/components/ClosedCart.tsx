@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import iconCart from "../assets/icons/Vector.svg";
+import { CartContext } from "../context/CartContext";
 
 interface Props {
   setCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export function CloseCart({ setCart }: Props) {
-  const [countItemInCart] = useState<number | null>(null);
+  const {cart} = useContext(CartContext);
 
   const handleCart = (): void => {
     setCart(true);
@@ -16,7 +17,7 @@ export function CloseCart({ setCart }: Props) {
   return (
     <Wrapper onClick={handleCart}>
       <Cart src={iconCart} />
-      <CountProducts>{countItemInCart ? countItemInCart : 0}</CountProducts>
+      <CountProducts>{cart.length == 0 ? 0 : cart.length}</CountProducts>
     </Wrapper>
   );
 }

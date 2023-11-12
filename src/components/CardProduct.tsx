@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import bag from "../assets/icons/shopping-bag.png"
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 type Product = {
   products: Array<{
@@ -15,7 +17,31 @@ type Product = {
   count: number;
 };
 
+type ReturnItem = {
+  id: number;
+  name: string;
+  brand: string;
+  description: string;
+  photo: string;
+  price: string;
+  createdAt: string;
+  updateAt: string;
+}
+
 export function CardProduct({ data }: { data: Product }) {
+  const {cart, setCart} = useContext(CartContext);
+
+  const addedToCart = (item: ReturnItem): void => {
+    const index = cart.findIndex((product) => product.id === item.id);
+
+    if(index !== -1){
+      return
+    }else{
+      const newProduct = {...item};
+      setCart((previusProducts) => [...previusProducts, newProduct])
+    }
+  }
+
   return (
     <Wrapper>
       {data.products.map((item) => (
@@ -32,10 +58,10 @@ export function CardProduct({ data }: { data: Product }) {
               <Description>{item.description}</Description>
             </About>
           </WrapperProduct>
-          <Buy>
-            <Bag src={bag}/>
+          <Buy onClick={() => addedToCart(item)}>
+            <Bag src={bag} />
             <LabelBtn>
-             Comprar
+              Comprar
             </LabelBtn>
           </Buy>
         </Card>
