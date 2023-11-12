@@ -20,18 +20,18 @@ export function CardProduct({ data }: { data: Product }) {
     <Wrapper>
       {data.products.map((item) => (
         <Card key={item.id}>
-          <WrapperInfos>
-            <WrapperPhoto>
-              <Photo src={item.photo} alt={item.name} />
-            </WrapperPhoto>
-            <Infos>
-              <WrapperModelValue>
-                <NameProduct>{item.name}</NameProduct>
+          <WrapperProduct>
+            <Photo>
+              <Img src={item.photo} alt={item.name} />
+            </Photo>
+            <About>
+              <Info>
+                <Product>{item.name}</Product>
                 <Price>R${item.price.replace('.00', '')}</Price>
-              </WrapperModelValue>
+              </Info>
               <Description>{item.description}</Description>
-            </Infos>
-          </WrapperInfos>
+            </About>
+          </WrapperProduct>
           <Buy>
             <Bag src={bag}/>
             <LabelBtn>
@@ -64,7 +64,7 @@ const Card = styled.div`
   overflow: hidden;
 `;
 
-const WrapperInfos = styled.div`
+const WrapperProduct = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
@@ -72,29 +72,29 @@ const WrapperInfos = styled.div`
   flex-direction: column;
 `
 
-const WrapperPhoto = styled.div`
+const Photo = styled.div`
   width: 111px;
   height: 138px;
 `;
 
-const Photo = styled.img`
+const Img = styled.img`
   width: 100%;
 `;
 
-const Infos = styled.div`
+const About = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
 `;
 
-const WrapperModelValue = styled.div`
+const Info = styled.div`
   width: 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-const NameProduct = styled.h1`
+const Product = styled.h1`
   font-size: 15px;
   line-height: 19px;
   font-weight: 400;
