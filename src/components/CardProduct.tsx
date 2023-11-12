@@ -1,5 +1,8 @@
+import styled from "styled-components";
+import bag from "../assets/icons/shopping-bag.png"
+
 type Product = {
-  product: [{
+  products: Array<{
     id: number;
     name: string;
     brand: string;
@@ -8,15 +11,137 @@ type Product = {
     price: string;
     createdAt: string;
     updateAt: string;
-  }],
-  count:number
-}
+  }>;
+  count: number;
+};
 
-export function CardProduct({ data }: { data: Product[] }) {
-  console.log('Sou o card.', data)
+export function CardProduct({ data }: { data: Product }) {
   return (
-    <div>
-
-    </div>
-  )
+    <Wrapper>
+      {data.products.map((item) => (
+        <Card key={item.id}>
+          <WrapperInfos>
+            <WrapperPhoto>
+              <Photo src={item.photo} alt={item.name} />
+            </WrapperPhoto>
+            <Infos>
+              <WrapperModelValue>
+                <NameProduct>{item.name}</NameProduct>
+                <Price>R${item.price.replace('.00', '')}</Price>
+              </WrapperModelValue>
+              <Description>{item.description}</Description>
+            </Infos>
+          </WrapperInfos>
+          <Buy>
+            <Bag src={bag}/>
+            <LabelBtn>
+             Comprar
+            </LabelBtn>
+          </Buy>
+        </Card>
+      ))}
+    </Wrapper>
+  );
 }
+
+const Wrapper = styled.div`
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+`;
+
+const Card = styled.div`
+  width: 218px;
+  height: 285px;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px #e6e6e6;
+  overflow: hidden;
+`;
+
+const WrapperInfos = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`
+
+const WrapperPhoto = styled.div`
+  width: 111px;
+  height: 138px;
+`;
+
+const Photo = styled.img`
+  width: 100%;
+`;
+
+const Infos = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const WrapperModelValue = styled.div`
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const NameProduct = styled.h1`
+  font-size: 15px;
+  line-height: 19px;
+  font-weight: 400;
+`;
+
+const Price = styled.span`
+  padding: 5px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: #373737;
+  color: #FFFFFF;
+`;
+
+const Description = styled.h3`
+  padding: 5px;
+  color: #2C2C2C;
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 12px;
+`;
+
+const Buy = styled.button`
+  width: 218px;
+  height: 31.91px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  background-color: #0F52BA;
+  cursor: pointer;
+`;
+
+const LabelBtn = styled.h1`
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+`
+
+const Bag = styled.img`
+  width: 12px;
+  height: 13.5px;
+`

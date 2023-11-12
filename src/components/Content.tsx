@@ -15,7 +15,7 @@ export function Content() {
 
   return(
     <Wrapper>
-      <CardProduct data={data}/>
+      {data && <CardProduct data={data}/>}
     </Wrapper>
   )
 }
