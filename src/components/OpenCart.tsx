@@ -18,7 +18,7 @@ export function OpenCart({ setCart }: Props) {
 
   useEffect(() => {
     const calculateTotal = (): void => {
-      const sum: number = cart.reduce((accumulator, currentItem) => accumulator + Number(currentItem.price), 0);
+      const sum: number = cart.reduce((ac, item) => ac += (Number(item.price) * item.quantity), 0);
       setTotalAmount(sum);
     };
 
