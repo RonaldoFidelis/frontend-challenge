@@ -9,6 +9,7 @@ type Product = {
   price: string;
   createdAt: string;
   updateAt: string;
+  quantity?:number;
 }
 
 type CartContext = {

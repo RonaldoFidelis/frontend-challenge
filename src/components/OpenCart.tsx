@@ -25,6 +25,7 @@ export function OpenCart({ setCart }: Props) {
     calculateTotal();
   }, [cart]);
 
+  console.log(cart);
 
   return (
     <Aside>

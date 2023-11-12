@@ -17,7 +17,7 @@ type Product = {
   count: number;
 };
 
-type ReturnItem = {
+type Item = {
   id: number;
   name: string;
   brand: string;
@@ -31,13 +31,13 @@ type ReturnItem = {
 export function CardProduct({ data }: { data: Product }) {
   const {cart, setCart} = useContext(CartContext);
 
-  const addedToCart = (item: ReturnItem): void => {
+  const addedToCart = (item: Item): void => {
     const index = cart.findIndex((product) => product.id === item.id);
 
     if(index !== -1){
       return
     }else{
-      const newProduct = {...item};
+      const newProduct = {...item, quantity: 1};
       setCart((previusProducts) => [...previusProducts, newProduct])
     }
   }
