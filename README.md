@@ -1,7 +1,7 @@
 
 # Front-end challenge
 
-> Acessar a aplicação: <a href="https://frontend-challenge-nu-ashen.vercel.app/" target="_blank">Link</a>
+> Acessar a aplicação: <a href="https://frontend-challenge-jbrl.vercel.app/" target="_blank">Link</a>
 
 
 ## Tecnologias Utilizadas
