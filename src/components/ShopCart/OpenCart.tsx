@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import icon from "../../assets/icons/Close_cart.png";
 import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../../context/CartContext";
+import { cartContext } from "../../context/CartContext";
 import { InCart } from "../CardProducts/InCart";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export function OpenCart({ setCart }: Props) {
-  const { cart } = useContext(CartContext);
+  const { cart } = useContext(cartContext);
   const [totalAmount, setTotalAmount] = useState<number>(0);
 
   const handleCart = (): void => {

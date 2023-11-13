@@ -1,52 +1,12 @@
+import { useCart } from "../../hooks/useCart";
 import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { cartContext } from "../../context/CartContext";
 import styled from "styled-components";
 import iconDelete from "../../assets/icons/Close_cart.png";
 
-type Product = {
-  id: number;
-  name: string;
-  brand: string;
-  description: string;
-  photo: string;
-  price: string;
-  createdAt: string;
-  updateAt: string;
-  quantity?: number;
-}
-
 export function InCart() {
-  const { cart, setCart } = useContext(CartContext);
-
-  const decreaseQuantity = (item: Product): void => {
-    const update = cart.map((product) => {
-      if (product.quantity == 1) {
-        return { ...product };
-      }
-
-      if (product.id == item.id) {
-        return { ...product, quantity: Math.max((product.quantity || 1) - 1, 0) }
-      }
-
-      return product;
-    })
-    setCart(update);
-  }
-
-  const incrementQuantity = (item: Product): void => {
-    const updateCart = cart.map((product) => {
-      if (product.id == item.id) {
-        return { ...product, quantity: Math.max((product.quantity || 1) + 1, 0) }
-      }
-      return product;
-    })
-    setCart(updateCart);
-  }
-
-  const deleteWish = (item: Product): void => {
-    const updateCart = cart.filter((product) => product.id !== item.id)
-    setCart(updateCart);
-  }
+  const { cart } = useContext(cartContext);
+  const {incrementQuantity, decreaseQuantity, deleteWish} = useCart()
 
   return (
     <Wrapper>

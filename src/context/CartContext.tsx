@@ -21,14 +21,14 @@ type CartContextProviderProps = {
   children: ReactNode;
 };
 
-export const CartContext = createContext<CartContext>({} as CartContext);
+export const cartContext = createContext<CartContext>({} as CartContext);
 
 export const CartContextProvider: React.FC<CartContextProviderProps> = ({ children }) => {
   const [cart, setCart] = useState<Product[]>([]);
 
   return (
-    <CartContext.Provider value={{ cart, setCart }}>
+    <cartContext.Provider value={{ cart, setCart }}>
       {children}
-    </CartContext.Provider>
+    </cartContext.Provider>
   );
 };

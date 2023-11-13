@@ -1,7 +1,6 @@
+import { useCart } from "../../hooks/useCart";
 import styled from "styled-components";
 import bag from "../../assets/icons/shopping-bag.png"
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
 
 type Product = {
   products: Array<{
@@ -17,30 +16,8 @@ type Product = {
   count: number;
 };
 
-type Item = {
-  id: number;
-  name: string;
-  brand: string;
-  description: string;
-  photo: string;
-  price: string;
-  createdAt: string;
-  updateAt: string;
-}
-
 export function InMain({ data }: { data: Product }) {
-  const {cart, setCart} = useContext(CartContext);
-
-  const addedToCart = (item: Item): void => {
-    const index = cart.findIndex((product) => product.id === item.id);
-
-    if(index !== -1){
-      return
-    }else{
-      const newProduct = {...item, quantity: 1};
-      setCart((previusProducts) => [...previusProducts, newProduct])
-    }
-  }
+  const {addedToCart} = useCart()
 
   return (
     <Wrapper>

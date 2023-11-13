@@ -53,8 +53,3 @@ Aspectos técnicos
 ---------------
 
 Todas as ferramentas listadas anteriormente são mandatórias, além delas sinta-se livre para utilizar de qualquer outra technologia que te seja confortável.
-
-Faça o deploy!
----------------
-
-Ao finalizar, faça o deploy no lugar que te for confortável (exemplo: Vercel, Netlify, Heroku, Amazon EC2, App Runner, etc)
