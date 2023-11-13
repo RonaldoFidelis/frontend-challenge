@@ -2,7 +2,7 @@ import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { InMain } from "../InMain"
 
-describe('Card', () => {
+describe('In Main', () => {
 
   it('Render button addedToCart', () => {
     const Product = {

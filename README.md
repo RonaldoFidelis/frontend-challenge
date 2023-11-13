@@ -1,8 +1,30 @@
+# Front-end Challenge
 
-# Front-end challenge
+> Para acessar a aplicação, clique [aqui](https://frontend-challenge-jbrl.vercel.app/).
 
-> Acessar a aplicação: <a href="https://frontend-challenge-jbrl.vercel.app/" target="_blank">Link</a>
+## Como Testar
 
+### Instalação de Dependências
+
+```bash
+npm install
+```
+
+### Rodando o Projeto
+
+```bash
+npm start
+```
+
+### Rodando os Testes Funcionais
+
+```bash
+npx jest
+```
+ou
+```bash
+npm run test
+```
 
 ## Tecnologias Utilizadas
 
@@ -13,35 +35,31 @@
 - **[React Router](https://reactrouter.com/en/main)**
 - **[HTML](https://developer.mozilla.org/pt-BR/docs/Web/HTML)**
 - **[CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)**
-- **[Styled components](https://styled-components.com/)**
-
+- **[Styled Components](https://styled-components.com/)**
 
 ## DESAFIO
 
-O objetivo principal desse teste é avaliar sua capacidade de escrever código limpo, bem testado e reutilizável. Ao terminar, faça o deploy da aplicação e mande-nos o link.
+O objetivo principal deste teste é avaliar sua capacidade de escrever código limpo, bem testado e reutilizável. Ao terminar, faça o deploy da aplicação e nos envie o link.
 
-Tarefa (funcional)
----------------
+### Tarefa (Funcional)
 
-Para esse desafio, você deve consumir nossa [API REST de produtos](https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api-docs/) para exibir a lista de produtos da loja.
+Para este desafio, você deve consumir nossa [API REST de produtos](https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api-docs/) para exibir a lista de produtos da loja.
 
 A aplicação deve conter apenas uma página/rota e um carrinho.
 
-- <b>Loja</b>: A lista de produtos deve ser buscada de nossa API, use um shimmer/skeleton enquanto estiver em loading.
- 
-- <b>Carrinho</b>: O carrinho deve conter todos os produtos selecionados, juntamente com a opção de aumentar a quantidade de cada produto selecionado.
+- **Loja**: A lista de produtos deve ser buscada de nossa API. Utilize um shimmer/skeleton enquanto estiver em loading.
 
-Use do Jest e a testing-library para realizar os testes unitários.
+- **Carrinho**: O carrinho deve conter todos os produtos selecionados, juntamente com a opção de aumentar a quantidade de cada produto selecionado.
 
-Recursos
----------------
+Utilize Jest e a testing-library para realizar os testes unitários.
 
-UI/UX: [Figma loja](https://www.figma.com/file/Z4z8osDbK1ET7cjNzFRMrK/MKS-Front-end-challenge?node-id=0%3A1) PS: O design system está incluso, incluindo a fonte.
+### Recursos
 
-API: [API REST de produtos](https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api-docs/) para exibir a lista de produtos da loja.
+**UI/UX**: [Figma loja](https://www.figma.com/file/Z4z8osDbK1ET7cjNzFRMrK/MKS-Front-end-challenge?node-id=0%3A1) - O design system está incluso, incluindo a fonte.
 
-Ferramentas requeridas
----------------
+**API**: [API REST de produtos](https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api-docs/) para exibir a lista de produtos da loja.
+
+### Ferramentas requeridas
 
 1. TypeScript
 2. React ou Next.js (Preferimos Next.js)
@@ -49,7 +67,6 @@ Ferramentas requeridas
 4. Styled-components
 5. Jest
 
-Aspectos técnicos
----------------
+### Aspectos técnicos
 
-Todas as ferramentas listadas anteriormente são mandatórias, além delas sinta-se livre para utilizar de qualquer outra technologia que te seja confortável.
+Todas as ferramentas listadas anteriormente são mandatórias. Além delas, sinta-se livre para utilizar qualquer outra tecnologia que seja confortável para você.

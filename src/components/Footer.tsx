@@ -3,13 +3,13 @@ import styled from "styled-components"
 export function Footer(){
 
   return(
-    <Baseboard>
+    <Wrapper>
       <Copy>MKS sistemas &copy; Todos os direitos reservados</Copy>
-    </Baseboard>
+    </Wrapper>
   )
 }
 
-const Baseboard = styled.footer`
+const Wrapper = styled.footer`
   background: #EEEEEE;
   width: 100%;
   height: 34px;

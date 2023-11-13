@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { CartControl } from "./ShopCart/CartControl";
+import styled from "styled-components";
 
 export function Navbar() {
 

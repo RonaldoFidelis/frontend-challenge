@@ -10,11 +10,11 @@ export function Main() {
   if (isLoading) {
     return (
       <Wrapper>
-        <WrapperCard>
+        <LoadingProduct>
           {Array.from({ length: quantityProducts }, (_, index) => (
             <Skeleton key={index + 1} width={218} height={285} borderRadius={10}></Skeleton>
           ))}
-        </WrapperCard>
+        </LoadingProduct>
       </Wrapper>
     );
   }
@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const WrapperCard = styled.div`
+const LoadingProduct = styled.div`
   display: grid;
   gap: 25px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
