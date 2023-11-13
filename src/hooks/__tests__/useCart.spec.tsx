@@ -24,7 +24,7 @@ const TestComponent = () => {
     <div>
       <h1>
         {cart && cart.map((item) => (
-          <div>
+          <div key={item.id}>
             <h1>
               {item.name}
             </h1>
