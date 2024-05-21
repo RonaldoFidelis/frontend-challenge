@@ -37,13 +37,10 @@ npm run test
 - **[CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)**
 - **[Styled Components](https://styled-components.com/)**
 
-## DESAFIO
-
-O objetivo principal deste teste é avaliar sua capacidade de escrever código limpo, bem testado e reutilizável. Ao terminar, faça o deploy da aplicação e nos envie o link.
 
 ### Tarefa (Funcional)
 
-Para este desafio, você deve consumir nossa [API REST de produtos](https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api-docs/) para exibir a lista de produtos da loja.
+Consumir API [API REST de produtos](https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api-docs/) para exibir a lista de produtos da loja.
 
 A aplicação deve conter apenas uma página/rota e um carrinho.
 
@@ -55,9 +52,9 @@ Utilize Jest e a testing-library para realizar os testes unitários.
 
 ### Recursos
 
-**UI/UX**: [Figma loja](https://www.figma.com/file/Z4z8osDbK1ET7cjNzFRMrK/MKS-Front-end-challenge?node-id=0%3A1) - O design system está incluso, incluindo a fonte.
+**UI/UX**: [Figma loja](https://www.figma.com/file/Z4z8osDbK1ET7cjNzFRMrK/MKS-Front-end-challenge?node-id=0%3A1)
 
-**API**: [API REST de produtos](https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api-docs/) para exibir a lista de produtos da loja.
+**API**: [API REST de produtos](https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api-docs/) 
 
 ### Ferramentas requeridas
 
